@@ -62,24 +62,17 @@ const DROPBOX_FOLDER = '/DropUploadApp';
 app.use(express.json());
 
 // your static site demain ----
-// global domain
-// const cors = require('cors');
-// app.use(cors({
-// //   origin: '*'
-// }));
 const cors = require('cors');
-app.use(cors({
-  origin: 'https://jaybee327.github.io'
-}));
-// const cors = require('cors');
-// app.use(cors({
-//   origin: 'https://sarahleean.github.io'
-// }));
-// if using github
-// const cors = require('cors');
-// app.use(cors({
-//   origin: 'https://yourusername.github.io'
-// }));
+const corsOptions = {
+    // your frontend link
+  origin: 'https://sixeeinc-fileuploader-app.onrender.com',
+// origin: 'https://username.github.io', // if your static site is from your github
+// origin: '*' // for global
+  methods: ['GET', 'POST', 'PUT', 'DELETE'],
+  allowedHeaders: ['Content-Type', 'Authorization']
+};
+
+app.use(cors(corsOptions));
 
 const uploadFile = async (req, res, file, filename) => {
     try {
