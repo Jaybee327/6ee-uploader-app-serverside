@@ -12,24 +12,24 @@ const app = express();
 const port = 3000;
 
 // 1. For App Key -------------------------
-const APP_KEY = 't1e9xnc0j0p74kb'; // create a new app key: Go to the Dropbox Developer Dashboard (https://www.dropbox.com/developers) and create a new app (call it whatever). This will give you access to the Dropbox API,
+const APP_KEY = '1vva13287tatkzs'; // create a new app key: Go to the Dropbox Developer Dashboard (https://www.dropbox.com/developers) and create a new app (call it whatever). This will give you access to the Dropbox API,
 // find and click Generate an access token for your app. This token will allow your app to access your Dropbox account via this app.
 
 // 2. For App Secret -------------------------
-const APP_SECRET = 'hemfrt8veqsk26j'; // you'll also find app secret code in the dash board...
+const APP_SECRET = 'j6xn07nel550jma'; // you'll also find app secret code in the dash board...
 
 // 3. For Access Token -------------------------
-let ACCESS_TOKEN = 'sl.u.AFzAyDIf7wIPpK9Auq2-siQzi7yhigVSVJw1bSEGOSbhOBBBKaqGNG5P6GiQp3g9hm0IRLkqgs111AMIEnvcMbq5RGGwwgE2uRlbn15LCRHRvmUkvvbAaYF7KyD6mOXFfOALh1TX9dpT43bW_lGy7sQft3njNgZLL5p3yRTCL6IaeuceMwijX677LYk0jNei30X6Qv1C7T5VvuQKlEa6PAUkIH2kfK_0grw3JMTX-0EEaDve-gGKdQauVA5kPOt8dgxmRjRqHBNS0bxdTHXIJcUsjvA-E9P6fE2pnyys5uIckJcE2WrKITw6SgDRRGhmdmdMiQjVAjoPCPxAHAis4eD5_oTPnqFBFx3Ca0HfKZNyTgucDjovMmOz8PY5OlxKXLQxXTkJv6etrc3JKfrgBlCkXStirTC49fxJfnqkJXaaq357N6WkZtjXOmmzUt7K5Gw3AX_3186O-pw09l16ItOWEh2mwLP0h6LJkKC-SprR3Rv0j1-z8K78Ja1rBg8kjPCAhGGQHmunIBrsjybLCRuvKonD262UYdt6V2BN2cCsrvlfB1ADQJAWQgT7LwgLhJs-r1GQvQFbX36yMBApYdqVKOi1tO2si9tPbRx7bMlPOPf3CRf4j1VTnQ2LGE3kgJy9WDGok5SERAVeNnhVQS0L_Jf6mrYYQnJevC8kwLwqH255CHcEYRMoHyrHN3xUUHYrYysq9TOFVnOnXV_mIUo6_Mv3PcaqEhvNR6qnyxlG7U7f4fGMsxv-L1Adlgor8YKfEdTIsi3jDNF5YlI-JgS9ZUPWn8dlGcLn3YE4zdZUSwfLYV4AUbDucIV0JumXKbesf2k15PB0-jFT-7dzqKP4PwmZFgpxJk8zy8YtHOue58MVId-JU30xHKCwDJW7ACzsIBYjn0m6-kkoVDpMJ8fLlU3ScnrqcbzB-l_QO8H0nwrwIkB7muIrogowvnC1gWecD1MtwhVkbXLSZ904RJ3Bk_fQxzqQUStZM-vZW8OjpjW2S_irwodAwfZOODpMP7gNDmbH6AGvFhmAp77HA6P1VgYP7or6OIcIRQceBLK02FaUxVdBmJRMhfCskmtT2fiY-Qx7aQK6N95UArXgH6qmYjQ5U6tIWzXf0TN1n_o-6YSNtI122JE8soRyxNDkllglkekIv6vs5bZzfdKesGg9GLRo255HE9iWSSA0NHWwFN0DXnzkUji75cL6EaX3TZFcTCRFqde84tjjh7bCBXZWrLO1XREDtLcW33B7vJu6k-_E6nVAcRwcJL9aeewjGAW0BtNu86gNFYw6Jdgl_KQZoUUq_dwjZMLmb6jkPd7cveuJy5ThvdKZSf0EIp0A6M9pKsFjibrEx0y74RCvPwesZxUlDk7jxH8m57SW71pt8Ur6ifuTjf8ReL16JJLpFsCesAi2fC-TZregCNmg4BoI';
+let ACCESS_TOKEN = 'sl.u.AF86zc7DdsjwwePHwm1lS4t6UhPWwMkxCn-OQZPJcGN4_7Laqc-bqqtj69nZM0IACBot4WufuBuMGIxa7lW_J6DuUaFqIuN9AMH0VcxlnJ34F53l6fuEfeBQ0m9KDGiglG6ErR8-0MIqfMMihAXkSW62WHWm0S05n-ML6m5yt97cX3sm7-EoEVnAKJasyexs9VCtSf1XCIPuglZk4Hp67BkM_KvzZ5Mit-h1n9DLd5Kbgc8b0S7PkO6PWiop-uT7I2wOfXvDAcGzRgPVqU-EEr1vn_4tSj0CS5s55QlLIjnaIjsygqDVxbkcNmIhExIXwjpngi8L6CJn09Dhr3hn05EC7rSpCFUXVgwmZH251AAiRJz331Zzua80qYsgzs-85kHMZ3MIRsl4I81f9QYiZMAyfTFluDDK2u1LQODPvUd6pa560Awy09cZIsRkvdJ_tu217uinph2s62IHeos1dltZC_ggvUdmrsgFO2xb4PImR4HUyuojVeDoQbQMO9k-0UiGgoYutihKoruErXyPJ1HVGuJFVVvoja9l0cHk45ltV4De-amcJvFF5WtMmot_Yqqtf1xhVPhhYi8m7XKJhnmCvdLTe3q1GyKsMAWlFovHlPZVKvQUIkYZdX57sOw4sv3VoUgvVlGpk5QyqBsyhy4yv7tEHy9KI2t7Z6rzLKcFkkN51138zxInHUFJsYvf22xsosltiJlXUe8rnsVwVhtpy3FLhWfeDkCiRLUMH1D39Ecu9cA6x4TVeMhZPYwOEX_TwVkZotoigRM_iUDQI_hfT8aHHelzxVEEKpaGicknajQGj2F9jFegNLBvgtIJ1LvjYS1PtZ2Rafgo0vFpc3QjxGUkZOHi18PkBIMAGRc69XH_4bcqeZD9hBB-EiXoKgtdyqI-7Bli2839VyV2WKc45Du4nrN3VW8JBXAos8IB3Tl4JvB7GjpEFPdgIFrKi13jSbKPX2yExs_Wvu8u9zkjbsj0KLHxjWTDdmrXcnuWcvGmTDWweh8j4-CJ0U5BBRHww3cnouMgKpXPxY_1iXVo53vn6y2CWm-5LqtAcxTy8dzDp0MpnqR6hoL6XVBYzIr7r-uvAmI_DitCyqPFrokp6Atgl5zEKoRsvH9SdicQHljvXwbuklmNDs6u21tRNyx-RPf0KXqHiJIaNm-CjlR-IhRyPygp6RK0iVya8BKkV5ktaBkI_axrQzumEkr0XyCP6yDRVnlkNPIZoWjqjTKgotdgEIdJB9eWDBq51k4LwZBRbaLTRTmkXRkOl1RqHqzb_CFZ-nfmij9kWbVBCY41Wc9a0mefV_chUBNjV3p5eOyX-MfK-dFQS1HVzARMThCveNAHuIdfZaN2cdYAA8TXCQSosWKEs_On4lkdXaMFqXXM5TqqHjMOKE-TGcrbVisaQomyZ7Tc6XdLdstG_LCp';
 // Access token is extremely lenghty and can be found in....
 // get access token with this link on your browser (after creating a developer account with dropbox and also after getting Your Appkey)
-// https://www.dropbox.com/oauth2/authorize?client_id=pasteYourAppkeyHere&token_access_type=offline&response_type=code
+// https://www.dropbox.com/oauth2/authorize?response_type=code&client_id=YOUR_APP_KEY
 
 // 4. For Temp Authoization code -------------------------
 // you will need this Authorization Code Link direct link in the process to get your main refresh token (to get)
-// AUTHORIZATION_CODE = "P6SxvwI4BIUAAAAAAAAAVD9Vkmd1qQZhvdvUkeZmQZT"; // This will only be used in the process of getting the Refresh Token
+// AUTHORIZATION_CODE = "yZj9NDtoeToAAAAAAAAAHU1FTE09tRCI67Cy_anpRxY"; // This will only be used in the process of getting the Refresh Token
 // get this auth code... do this below.
 // paste this in your browser and click approve
-// https://www.dropbox.com/oauth2/authorize?response_type=code&client_id=YOUR_APP_KEY
+// https://www.dropbox.com/oauth2/authorize?client_id=pasteYourAppkeyHere&token_access_type=offline&response_type=code
 // Save it somewhere you will see where to use it below.
 
 // 5. For Main Refresh token -------------------------
@@ -131,3 +131,4 @@ app.post('/upload-text', async (req, res) => {
 app.listen(port, () => {
     console.log(`Server listening on port ${port}`);
 });
+
