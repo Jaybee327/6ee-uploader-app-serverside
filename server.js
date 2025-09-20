@@ -63,11 +63,18 @@ app.use(express.json());
 
 // your static site demain ----
 // global domain
+// const cors = require('cors');
+// app.use(cors({
+// //   origin: '*'
+// }));
 const cors = require('cors');
 app.use(cors({
-  origin: '*'
-  // origin: 'https://jaybee327.github.io'
+  origin: 'https://jaybee327.github.io'
 }));
+// const cors = require('cors');
+// app.use(cors({
+//   origin: 'https://sarahleean.github.io'
+// }));
 // if using github
 // const cors = require('cors');
 // app.use(cors({
@@ -120,6 +127,3 @@ app.post('/upload-text', async (req, res) => {
 app.listen(port, () => {
     console.log(`Server listening on port ${port}`);
 });
-
-
-
