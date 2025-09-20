@@ -29,6 +29,12 @@ let ACCESS_TOKEN = 'sl.u.AF-1_CmHC5Uqhx-8bXYXToaZCtUTGTYhmdrUmv_t0kQrwN-kGJukE7B
 const REFRESH_TOKEN = 'ao96GGSzLTIAAAAAAAAAAfsqryas4vx5eZi9Xo1dvO75JN1gsoi2488Xm7Tpbfdv';
 
 
+
+
+
+
+
+
 // dont edit anything below except an expert.
 const refreshAccessToken = async () => {
     try {
@@ -55,13 +61,16 @@ const DROPBOX_FOLDER = '/DropUploadApp';
 
 app.use(express.json());
 
+// your static site demain ----
+// global domain
 const cors = require('cors');
 app.use(cors({
   origin: '*'
 }));
-
+// if using github
+// const cors = require('cors');
 // app.use(cors({
-//   origin: '*'
+//   origin: 'https://yourusername.github.io'
 // }));
 
 const uploadFile = async (req, res, file, filename) => {
@@ -110,5 +119,3 @@ app.post('/upload-text', async (req, res) => {
 app.listen(port, () => {
     console.log(`Server listening on port ${port}`);
 });
-
-
