@@ -74,7 +74,7 @@ app.use(cors({
 //   origin: '*'
 // }));
 
-const uploadFile = async (req, res, file, filename) => {
+const uploadFile = async (file, filename) => {
     try {
         if (typeof file === 'string') {
             file = Buffer.from(file);
@@ -95,20 +95,17 @@ const uploadFile = async (req, res, file, filename) => {
         const response = await axios.post('https://content.dropboxapi.com/2/files/upload', file, { headers });
 
         if (response.status === 200) {
-            res.send(`File uploaded to ${path}`);
+            return `File uploaded to ${path}`;
         } else {
-            res.status(500).send(`Error uploading file: ${response.statusText}`);
+            throw new Error(`Error uploading file: ${response.statusText}`);
         }
     } catch (error) {
         console.error('Error uploading file:', error);
         if (error.response && error.response.status === 401) {
             await refreshAccessToken();
-            await uploadFile(req, res, file, filename);
-            console.error('Error response:', error.response.status, error.response.statusText);
-            res.status(error.response.status).send(`Error: ${error.response.statusText}`);
+            return await uploadFile(file, filename);
         } else {
-            console.error('Error uploading file:', error);
-            res.status(500).send('Error uploading file');
+            throw error;
         }
     }
 };
@@ -116,7 +113,8 @@ const uploadFile = async (req, res, file, filename) => {
 // Endpoint to upload files to Dropbox
 app.post('/upload-file', upload.single('file'), async (req, res) => {
     try {
-        await uploadFile(req, res, req.file.buffer, req.body.filename);
+        const result = await uploadFile(req.file.buffer, req.body.filename);
+        res.send(result);
     } catch (error) {
         console.error('Error in /upload-file endpoint:', error);
         res.status(500).send('Internal Server Error');
@@ -126,12 +124,14 @@ app.post('/upload-file', upload.single('file'), async (req, res) => {
 // Endpoint to upload text to Dropbox
 app.post('/upload-text', async (req, res) => {
     try {
-         console.log('Request body:', req.body);
+        console.log('Request body:', req.body);
         if (!req.body || !req.body.text || !req.body.filename) {
             res.status(400).send('Text and filename are required');
             return;
         }
-        await uploadFile(req, res, Buffer.from(req.body.text), req.body.filename);
+        // const result = await uploadFile(null, Buffer.from(req.body.text), req.body.filename);
+        const result = await uploadFile(Buffer.from(req.body.text), req.body.filename);
+        res.send(result);
     } catch (error) {
         console.error('Error in /upload-text endpoint:', error);
         console.error('Error stack:', error.stack);
