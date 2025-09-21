@@ -73,7 +73,8 @@ const cors = require('cors');
 app.use(cors({
   origin: 'https://sixeeinc-fileuploader-app.onrender.com',
   methods: ['GET', 'POST', 'PUT', 'DELETE'],
-  allowedHeaders: ['Content-Type', 'Authorization']
+  allowedHeaders: ['Content-Type', 'Authorization'],
+  credentials: true
 }));
 
 
