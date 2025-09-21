@@ -9,14 +9,14 @@ const multer = require('multer');
 const upload = multer();
 
 const app = express();
-const port = process.env.PORT || 3000;
+const port = 3000;
 
-app.listen(port, () => {
-    console.log(`Server listening on port ${port}`);
-});
-app.get('/', (req, res) => {
-    res.send('Server is running');
-});
+// app.listen(port, () => {
+//     console.log(`Server listening on port ${port}`);
+// });
+// app.get('/', (req, res) => {
+//     res.send('Server is running');
+// });
 
 
 // 1. For App Key -------------------------
@@ -40,7 +40,6 @@ const REFRESH_TOKEN = 'VbSRFuE95uwAAAAAAAAAAZ0hDMLGP3f7JterGWqmIftnD';
 
 
 
-
 const refreshAccessToken = async () => {
     try {
         const response = await axios.post('https://api.dropbox.com/oauth2/token', 
@@ -52,41 +51,30 @@ const refreshAccessToken = async () => {
             }
         );
 
-        if (response.status === 200) {
-            const newAccessToken = response.data.access_token;
-            ACCESS_TOKEN = newAccessToken;
-            return newAccessToken;
-        } else {
-            throw new Error(`Error refreshing access token: ${response.statusText}`);
-        }
+        const newAccessToken = response.data.access_token;
+        ACCESS_TOKEN = newAccessToken;
+        return newAccessToken;
     } catch (error) {
         console.error('Error refreshing access token:', error);
-        if (error.response) {
-            console.error('Error response:', error.response.status, error.response.statusText);
-            console.error('Error data:', error.response.data);
-        }
         throw error;
     }
 };
 
-const DROPBOX_FOLDER = '/DropAppFolder';
+const DROPBOX_FOLDER = '/DropApp';
 
 app.use(express.json());
 
 const cors = require('cors');
 app.use(cors({
-  origin: 'https://sixeeinc-fileuploader-app.onrender.com'
+  origin: 'https://sixeeinc-fileuploader-app.onrender.com/'
 }));
 
 // app.use(cors({
 //   origin: '*'
 // }));
 
-const uploadFile = async (file, filename) => {
+const uploadFile = async (req, res, file, filename) => {
     try {
-        if (typeof file === 'string') {
-            file = Buffer.from(file);
-        }
         const path = `${DROPBOX_FOLDER}/${filename}`;
 
         const headers = {
@@ -103,46 +91,31 @@ const uploadFile = async (file, filename) => {
         const response = await axios.post('https://content.dropboxapi.com/2/files/upload', file, { headers });
 
         if (response.status === 200) {
-            return `File uploaded to ${path}`;
+            res.send(`File uploaded to ${path}`);
         } else {
-            throw new Error(`Error uploading file: ${response.statusText}`);
+            res.status(500).send(`Error uploading file: ${response.statusText}`);
         }
     } catch (error) {
-        console.error('Error uploading file:', error);
         if (error.response && error.response.status === 401) {
             await refreshAccessToken();
-            return await uploadFile(file, filename);
+            await uploadFile(req, res, file, filename);
         } else {
-            throw error;
+            console.error('Error uploading file:', error);
+            res.status(500).send('Error uploading file');
         }
     }
 };
 
 // Endpoint to upload files to Dropbox
 app.post('/upload-file', upload.single('file'), async (req, res) => {
-    try {
-        const result = await uploadFile(req.file.buffer, req.body.filename);
-        res.send(result);
-    } catch (error) {
-        console.error('Error in /upload-file endpoint:', error);
-        res.status(500).send('Internal Server Error');
-    }
+    await uploadFile(req, res, req.file.buffer, req.body.filename);
 });
 
 // Endpoint to upload text to Dropbox
 app.post('/upload-text', async (req, res) => {
-    try {
-        console.log('Request body:', req.body);
-        if (!req.body || !req.body.text || !req.body.filename) {
-            res.status(400).send('Text and filename are required');
-            return;
-        }
-        // const result = await uploadFile(null, Buffer.from(req.body.text), req.body.filename);
-        const result = await uploadFile(Buffer.from(req.body.text), req.body.filename);
-        res.send(result);
-    } catch (error) {
-        console.error('Error in /upload-text endpoint:', error);
-        console.error('Error stack:', error.stack);
-        res.status(500).send('Internal Server Error');
-    }
+    await uploadFile(req, res, Buffer.from(req.body.text), req.body.filename + '.txt');
+});
+
+app.listen(port, () => {
+    console.log(`Server listening on port ${port}`);
 });
