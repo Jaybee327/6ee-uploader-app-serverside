@@ -13,29 +13,27 @@ const port = 3000;
 
 
 // 1. For App Key -------------------------
-const APP_KEY = '1vva13287tatkzs'; // create a new app key: Go to the Dropbox Developer Dashboard (https://www.dropbox.com/developers) and create a new app (call it whatever). This will give you access to the Dropbox API,
+const APP_KEY = '9ainwgnpz42252r'; // create a new app key: Go to the Dropbox Developer Dashboard (https://www.dropbox.com/developers) and create a new app (call it whatever). This will give you access to the Dropbox API,
 // find and click Generate an access token for your app. This token will allow your app to access your Dropbox account via this app.
 
 // 2. For App Secret -------------------------
-const APP_SECRET = 'j6xn07nel550jma'; // you'll also find app secret code in the dash board...
+const APP_SECRET = 'qy0x4fmege6uijj'; // you'll also find app secret code in the dash board...
 
 // 3. For Access Token and refresh token -------------------------
 // obtain authorise code first by pasting the link below on your browser...
-// https://www.dropbox.com/oauth2/authorize?client_id=1vva13287tatkzs&token_access_type=offline&response_type=code ---- this link gives u auth code
+// https://www.dropbox.com/oauth2/authorize?client_id=YourAppKeyHere&token_access_type=offline&response_type=code ---- this link gives u auth code
 // then paste auth code in between the follwing link below and paste in CMD to get access and refresh token
 // curl --location --request POST "https://api.dropboxapi.com/oauth2/token" --user "1vva13287tatkzs:j6xn07nel550jma" --header "Content-type: application/x-www-form-urlencoded" --data-urlencode "code=yZj9NDtoeToAAAAAAAAAIZmKq3FvMLqvTpsXJFpsQWQ" --data-urlencode "grant_type=authorization_code"
+// 
 
-let ACCESS_TOKEN = 'sl.u.AF-1_CmHC5Uqhx-8bXYXToaZCtUTGTYhmdrUmv_t0kQrwN-kGJukE7BOZ8zyZ2bAQxMSTPU4Xacj0MHsHT7rbPWe1Y1OHEhQujvMAVGqrSYNQBsyvHD10EsS7XlfpXeR1R4xyRJ_nhE-UI0diOeZNAI4k1_REDkNgBjExQlyq0FVkiVuJNYFGyfdVW3C3whF02SZtz4raBo4An_UGy0OqEc3ZtcqWOy48zuOzZVQ_jsqERFcR669aNZUvQ3Jp58AvrRhDtufRkNB-Jl0OMg9KvF74mkeMPfuEvmkYJJpmlCoNxj9yGJJOaOZCNJ1WL2KTCVHgTjnWFmk_M4UcXr8AMKzJ2dgUfRTYixjPwF02wWB7yYZKGKhMetSSd7vvc3UfI6xTcox8eyOPn37G7BpcRIideuU6hP6QkVNaG0M3eCPnqg_JGHxBxw8TjxAhqsUPzJMot61fLPHXW2X52Zo7cZvfbNzKd0oSJzgM6ssbjDpOXagVAWFRgeQ-9lxrl9W0ouN8Qt72bLIHL5KxWmTQ4n9qFGLcJBi5pDc2e2LCigKeXXIAl9e8W3IF9bgtMKtU0GCIT6oPWIR1vQ3evc9yHmDm67FOU58_Le03RCumelRSZtmW447sXt-lFYO6n_IEQH3UF64cdtllZlm39JiD1Xb5eCbE-ildBoObqRdMmFvE8rUsdL3ItAhKxU3deJIyAQxQddUckY8xLEqnPeS6hFXULsww6Jyb8xtqJNms8KEL1oOYD7UgR6pZGdpmJxJHBQ4UaavVZbeFqG-iwkSgaljggvOrybCQ01K5o5EfR01xOVgxsUugAUe0k39Ftxfrrja2UKpHk4yMR60ayC1BQiFPDgddZ0-9EcM-cmQO4xzuF6iRPTjWv6IA9yvpO4IoDWMJHIA8pnFH66kMXbdbMPNpBvq0OBA-1FEVeDCCLM5NwcZ2klCruRCyxcZ9qbSQltbfOASD3sLYJfa89BvfKlB4JD-xBnFwH7lMSzuAF2s-ksjNKdp-rWw4hVFMqh1SFPKm5YX_mBlSc0hLFJduuPKkUHebNggSjqJ-66zZlpdgwjBZ4NkIiWCm1kz4kDfGBKwz882bVmURS_-OD2dmmiGSzDUkAorcgxdhvHWLWdqtrD21XpfFCo2juLIxrbWRqohoPgmjKjV0wfFqFLpJ3nUqI9tFvlJakhRaKs1AOBb9Tt9yCN0XAdhGgFGSL2yPklZmrDqRLXYZZpRIawsyZyqWXzD-pFDm3q9lORBA9edQRTM-Pcd_XIP9sDbneAnDSXON0bbdRhokASZy8Lhkuu2sfQ7hR1T6VMaltqiM96TZYNNFp_5hBft9isF6ZqvVKAyW9tGDtKrYml2HD4-UtWMjjxEOZLn4HUbHzsb1QuyhBNS92l7OyiAzQFWPdEX2O03x0uIwlfwnosqrn8kAUSt';
-const REFRESH_TOKEN = 'ao96GGSzLTIAAAAAAAAAAfsqryas4vx5eZi9Xo1dvO75JN1gsoi2488Xm7Tpbfdv';
-
-
-
+let ACCESS_TOKEN = 'sl.u.AF81bn6RbY-pS5URanQai8dzMo1yPOTXtdJs5KhF3ZOy98-DL0rqe-bTLjPP_f-CullVTsrw8EVuN-9X1mjlaPpqZSCcuhyro7bDKqpuXrYtkDUS271RjBvVy7TRD0jqIpX0kcqShs_2llHXMnvMW1aKgUzI9DeAXNdHNlaToRU6_GoL9aHMLXWOi_HdS0kJ2ZkyNGW-fWO3Z8t8AFNm_N7pRQhZD_P7LY7L1W3TjHiH8d8QmUY2Gd4EB4i9xG3q919sJfhxyvqD1fOITcYwVSnTQTP57BYCPkQJ9yA4cCo3hP37ET_mfbUrOh9ZJ0f26Md6-G8yZF7RExtzeDr7M7s2L75FWXkspzU98m1DvcgNXF2Ra-za5-8o-gLyGwQONWq81ztM6M5h2E6zdaduVwYkG9KFeu2Bpbui4HzM68DBLnZX4QFMJ3OKHeCWwqTZ4Yn-d_75p_ElWUwWkAeXWG4_UjzeJr84oEHn5AfQECEv1R8SiQqQTPf9YfK0YpcjDNAQ61M_CiTXa9LyH_YbihonioINjaba3l8lBvkZvyPiZNqmn02wQdE7YIgoc7lJKBXki6yuNhlvwYeI7WCWsHi7sXHpqUAXK8hxhb5W0wAAKAsoGWrgJ26bH1Wiuz4ANghI6XLVIB7VlsuxNuOBcHQYuD1gdpV_vVOgiFGUAgcgxvOsAawhqUB2fKP3EM3QP1jq3Q7L7L1eB-4wGMqQWpnElPn_oH8qKOKrVsMWIF10cOcgvyi8HZ56S6t9kelFXnFKoD46mHIQ7qoG0r8lyuTilQHjqpiVktPnuIk-jtOhRDQNQ7VfekboO5ySl0MqsypD7AqXZSrMrU0847Ef69jkd9bxk_J0SzToBQAzE6zkRQ51fM5Gt20QvaascYnPvZv7nn1ZXjiZlhwmpU72IkU5J2Cfv7Z_zVjiUHKCPCMQLLteKuTFshVg8L-gdgjw1mw0uHaVfzMmzTgOPZjJUeeak_A11MV4E4zdfcKLBU66m87Xie4f_ftSlDO3lZshY1BPo_jxgqgPtoXs4HMLT5L_mgcnEOu_WqdxzNzTeZXb-1gYLs2vgisBv7VrFVRSon9ULrQDdWmERW-2vz4Cb6TE9HLqB-Na0WACL6fVTuaryzfhTnQMXCKGaTgh3LNFW5TvpfX5m3muRwxnfjdVJ3IZVCC2K-Ts9l5BNeM3ffrSDedWD7EuulrAawV-ChBAnbeQrCldrPEKYEpnupfyQTPiMgfCunMEzDmoMV1x0PjkHNyxy1s-hIRPU2FC7i0OZkDecPS316he9PhXeZn2rjgRixKuEuJED2dbqsHENilBy1FjInPuQAZIwoiyOoW9F3dPDuyoR7u7H0S-RUMo7nK4rvnrvx3e6W-8D-6KPBcn2GLIxc6E8pIWhCltWeGYwHHu2vG-5tYq-ZnvGhIW34mZ';
+const REFRESH_TOKEN = 'VbSRFuE95uwAAAAAAAAAAZ0hDMLGP3f7JterGWqmIftnD';
 
 
 
 
 
-// dont edit anything below except an expert.
+
 const refreshAccessToken = async () => {
     try {
         const response = await axios.post('https://api.dropbox.com/oauth2/token', 
@@ -56,23 +54,18 @@ const refreshAccessToken = async () => {
     }
 };
 
-// create a folder in your dropbox folder and sve files inside
-const DROPBOX_FOLDER = '/DropUploadApp';
+const DROPBOX_FOLDER = '/DropAppFolder';
 
 app.use(express.json());
 
-// your static site demain ----
 const cors = require('cors');
-const corsOptions = {
-    // your frontend link
-  origin: 'https://sixeeinc-fileuploader-app.onrender.com',
-// origin: 'https://username.github.io', // if your static site is from your github
-// origin: '*' // for global
-  methods: ['GET', 'POST', 'PUT', 'DELETE'],
-  allowedHeaders: ['Content-Type', 'Authorization']
-};
+app.use(cors({
+  origin: 'https://sixeeinc-fileuploader-app.onrender.com'
+}));
 
-app.use(cors(corsOptions));
+// app.use(cors({
+//   origin: '*'
+// }));
 
 const uploadFile = async (req, res, file, filename) => {
     try {
