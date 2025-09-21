@@ -20,21 +20,21 @@ const port = 3000;
 
 
 // 1. For App Key -------------------------
-const APP_KEY = '9ainwgnpz42252r'; // create a new app key: Go to the Dropbox Developer Dashboard (https://www.dropbox.com/developers) and create a new app (call it whatever). This will give you access to the Dropbox API,
+const APP_KEY = 'lzcdiqg8kbuq35u'; // create a new app key: Go to the Dropbox Developer Dashboard (https://www.dropbox.com/developers) and create a new app (call it whatever). This will give you access to the Dropbox API,
 // find and click Generate an access token for your app. This token will allow your app to access your Dropbox account via this app.
 
 // 2. For App Secret -------------------------
-const APP_SECRET = 'qy0x4fmege6uijj'; // you'll also find app secret code in the dash board...
+const APP_SECRET = '5s1v2waqaszia1v'; // you'll also find app secret code in the dash board...
 
-// 3. For Access Token and refresh token -------------------------
+// 3. For Access Token and refresh token (do this step fast) -------------------------
 // obtain authorise code first by pasting the link below on your browser...
 // https://www.dropbox.com/oauth2/authorize?client_id=YourAppKeyHere&token_access_type=offline&response_type=code ---- this link gives u auth code
 // then paste auth code in between the follwing link below and paste in CMD to get access and refresh token
-// curl --location --request POST "https://api.dropboxapi.com/oauth2/token" --user "1vva13287tatkzs:j6xn07nel550jma" --header "Content-type: application/x-www-form-urlencoded" --data-urlencode "code=yZj9NDtoeToAAAAAAAAAIZmKq3FvMLqvTpsXJFpsQWQ" --data-urlencode "grant_type=authorization_code"
+// curl --location --request POST "https://api.dropboxapi.com/oauth2/token" --user "Your-APP_KEY:Your-APP_SECRET" --header "Content-type: application/x-www-form-urlencoded" --data-urlencode "code=PasteAuthCodeHere" --data-urlencode "grant_type=authorization_code"
 // 
 
-let ACCESS_TOKEN = 'sl.u.AF81bn6RbY-pS5URanQai8dzMo1yPOTXtdJs5KhF3ZOy98-DL0rqe-bTLjPP_f-CullVTsrw8EVuN-9X1mjlaPpqZSCcuhyro7bDKqpuXrYtkDUS271RjBvVy7TRD0jqIpX0kcqShs_2llHXMnvMW1aKgUzI9DeAXNdHNlaToRU6_GoL9aHMLXWOi_HdS0kJ2ZkyNGW-fWO3Z8t8AFNm_N7pRQhZD_P7LY7L1W3TjHiH8d8QmUY2Gd4EB4i9xG3q919sJfhxyvqD1fOITcYwVSnTQTP57BYCPkQJ9yA4cCo3hP37ET_mfbUrOh9ZJ0f26Md6-G8yZF7RExtzeDr7M7s2L75FWXkspzU98m1DvcgNXF2Ra-za5-8o-gLyGwQONWq81ztM6M5h2E6zdaduVwYkG9KFeu2Bpbui4HzM68DBLnZX4QFMJ3OKHeCWwqTZ4Yn-d_75p_ElWUwWkAeXWG4_UjzeJr84oEHn5AfQECEv1R8SiQqQTPf9YfK0YpcjDNAQ61M_CiTXa9LyH_YbihonioINjaba3l8lBvkZvyPiZNqmn02wQdE7YIgoc7lJKBXki6yuNhlvwYeI7WCWsHi7sXHpqUAXK8hxhb5W0wAAKAsoGWrgJ26bH1Wiuz4ANghI6XLVIB7VlsuxNuOBcHQYuD1gdpV_vVOgiFGUAgcgxvOsAawhqUB2fKP3EM3QP1jq3Q7L7L1eB-4wGMqQWpnElPn_oH8qKOKrVsMWIF10cOcgvyi8HZ56S6t9kelFXnFKoD46mHIQ7qoG0r8lyuTilQHjqpiVktPnuIk-jtOhRDQNQ7VfekboO5ySl0MqsypD7AqXZSrMrU0847Ef69jkd9bxk_J0SzToBQAzE6zkRQ51fM5Gt20QvaascYnPvZv7nn1ZXjiZlhwmpU72IkU5J2Cfv7Z_zVjiUHKCPCMQLLteKuTFshVg8L-gdgjw1mw0uHaVfzMmzTgOPZjJUeeak_A11MV4E4zdfcKLBU66m87Xie4f_ftSlDO3lZshY1BPo_jxgqgPtoXs4HMLT5L_mgcnEOu_WqdxzNzTeZXb-1gYLs2vgisBv7VrFVRSon9ULrQDdWmERW-2vz4Cb6TE9HLqB-Na0WACL6fVTuaryzfhTnQMXCKGaTgh3LNFW5TvpfX5m3muRwxnfjdVJ3IZVCC2K-Ts9l5BNeM3ffrSDedWD7EuulrAawV-ChBAnbeQrCldrPEKYEpnupfyQTPiMgfCunMEzDmoMV1x0PjkHNyxy1s-hIRPU2FC7i0OZkDecPS316he9PhXeZn2rjgRixKuEuJED2dbqsHENilBy1FjInPuQAZIwoiyOoW9F3dPDuyoR7u7H0S-RUMo7nK4rvnrvx3e6W-8D-6KPBcn2GLIxc6E8pIWhCltWeGYwHHu2vG-5tYq-ZnvGhIW34mZ';
-const REFRESH_TOKEN = 'VbSRFuE95uwAAAAAAAAAAZ0hDMLGP3f7JterGWqmIftnD';
+let ACCESS_TOKEN = 'sl.u.AF8-JHXzDJEwGigCjgYKpJZVTBQBAXN-ia-wuALnUoz0uHJzRNf0sX8klJTIfQmKOFKgCW2XEKEWBI-irBjUgrsPfrud8xV2dH1vWkhVkWsay9GgaxLqYIwMXG3mGqESYbQ-COWo02wc-PEEoV7k7Gvplw48gVnmexaobyq4hMIr9cHmKqqDqL7ThH8sQZD6V_tHFatXD4k9jtVAV__fTcevpzYVx4U0Xm0LkFApqrGfLVymHgALRvDnaU-iEkl5sRTUywsOLxBF4v-oqUxOC8uH3EtJbUNbj51MlSFAokHZj8AFc2dtCQ_A2BWdABecxBtLVJOUhWsWlRycESFSrUVVygkB7pMXZM_QNbLlNNHE8ZEYJVzs5ILSBR_-4ubSbEC-8km8EYyUSPNBrzglhzsv1cj6QdepcTdhGJlM-UtvaROghpmewEjOLOY1XqKgRBJ4xqD5sEDn019ro6deu5odeJ1G1VKvLxmB5kULGMYxF382XC2KdgsvlJyVZkK0uuw4bu5_lo5vMvv9_TTQ7tGgW1fG0daYcG3Nm3EG78-1D6RxKtMiAYubjOEM_A3SsQYB9Vw800vsdY0k8vNiaWF3AMuKVTqVi0BBgAKu3_55HQ9g6GKaAIJIXRM944yCzyIth-GXSWyAQB6kba6E6hb4xUsJOM8IwU08P8rcK3Ax1Vf4s_ipTxdA7nYwifv_CyRFs_n-o7QWlr0a0aTFtRaDdxlC15JOLUNkN-VZ82m8r2ej3R4k9afdM8cZYP4jjFEq7C1NNksvEkgwvuwfhEGJUb5dWlK-Zrf6_vDKsReXqvwzPuRvsgWrxpw1749Dw78WcKHvrHUpgDg465q4kHEEz84NdT6WjPFLLv6Oh_FSG0OEuo8rLW5iA2i2EWkg4CTSt4B-Gz6XFc1DGjD901pGfHms5aGOtOSxzlOdjy8Vi3zWgnWDosh2wevvNW9mtdODJUaYEtjzj6jwmNWQMitR5BcP4nZXGby-DNKIBLRMNHjUPDxq1TDrv78ygTFwquDVja70TZmvLKWOQ_Cl3IGKv9fOYTHOxVCK_5VpI8x5lvH7qrk5q_Lw117AK9V_YKKOYlWMebUcQjkzDcKOjS8bul9RMrl6O0S3bLZzADio4LDU7AHc5CieF8W49jnru1gMdkBjZaXzh4bE6qBOK-Yt8kws6X9k_MIfvI3DaW2n2SWXIGi0zP9HNsKjvM9zK-k0Na6o_jqATLiyxD_YpVRth9kHcwJXsetYPtE5Sqf86hD5IutPE4AVr3PWR71PYhdgvr_5YKeqCIoeMeukyzJiXmhvgjWxCracgy4_r5su8WEYYvgj0di9t3hG_c1F9xf6hBahOTMPAezBOF7sRuGDy44aJ2U5vvyNj27Er01zgrXUTbSdIQquDtOsLj_nyWN95vqw4tSm9dwEcsQfacAW';
+const REFRESH_TOKEN = 'IFoV8x4Nvn8AAAAAAAAAAYYepmpjdAWxlJw9nKR_bBVFDG7Q4glRRPVXOmV';
 
 
 
