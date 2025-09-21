@@ -93,6 +93,8 @@ const uploadFile = async (req, res, file, filename) => {
         if (error.response && error.response.status === 401) {
             await refreshAccessToken();
             await uploadFile(req, res, file, filename);
+            console.error('Error response:', error.response.status, error.response.statusText);
+            res.status(error.response.status).send(`Error: ${error.response.statusText}`);
         } else {
             console.error('Error uploading file:', error);
             res.status(500).send('Error uploading file');
