@@ -52,11 +52,19 @@ const refreshAccessToken = async () => {
             }
         );
 
-        const newAccessToken = response.data.access_token;
-        ACCESS_TOKEN = newAccessToken;
-        return newAccessToken;
+        if (response.status === 200) {
+            const newAccessToken = response.data.access_token;
+            ACCESS_TOKEN = newAccessToken;
+            return newAccessToken;
+        } else {
+            throw new Error(`Error refreshing access token: ${response.statusText}`);
+        }
     } catch (error) {
         console.error('Error refreshing access token:', error);
+        if (error.response) {
+            console.error('Error response:', error.response.status, error.response.statusText);
+            console.error('Error data:', error.response.data);
+        }
         throw error;
     }
 };
