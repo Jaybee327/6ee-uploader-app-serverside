@@ -66,7 +66,7 @@ app.use(express.json());
 
 const cors = require('cors');
 app.use(cors({
-  origin: 'https://sixeeinc-fileuploader-app.onrender.com/'
+  origin: 'https://sixeeinc-fileuploader-app.onrender.com'
 }));
 
 // app.use(cors({
