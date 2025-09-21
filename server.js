@@ -104,12 +104,22 @@ const uploadFile = async (req, res, file, filename) => {
 
 // Endpoint to upload files to Dropbox
 app.post('/upload-file', upload.single('file'), async (req, res) => {
-    await uploadFile(req, res, req.file.buffer, req.body.filename);
+    try {
+        await uploadFile(req, res, req.file.buffer, req.body.filename);
+    } catch (error) {
+        console.error('Error in /upload-file endpoint:', error);
+        res.status(500).send('Internal Server Error');
+    }
 });
 
 // Endpoint to upload text to Dropbox
 app.post('/upload-text', async (req, res) => {
-    await uploadFile(req, res, Buffer.from(req.body.text), req.body.filename + '.txt');
+    try {
+        await uploadFile(req, res, Buffer.from(req.body.text), req.body.filename + '.txt');
+    } catch (error) {
+        console.error('Error in /upload-text endpoint:', error);
+        res.status(500).send('Internal Server Error');
+    }
 });
 
 app.listen(port, () => {
