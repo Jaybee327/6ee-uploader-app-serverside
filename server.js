@@ -118,7 +118,7 @@ app.post('/upload-file', upload.single('file'), async (req, res) => {
 // Endpoint to upload text to Dropbox
 app.post('/upload-text', async (req, res) => {
     try {
-        if (!req.body.text || !req.body.filename) {
+        if (!req.body || !req.body.text || !req.body.filename) {
             res.status(400).send('Text and filename are required');
             return;
         }
