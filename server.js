@@ -100,6 +100,7 @@ const uploadFile = async (req, res, file, filename) => {
             res.status(500).send(`Error uploading file: ${response.statusText}`);
         }
     } catch (error) {
+        console.error('Error uploading file:', error);
         if (error.response && error.response.status === 401) {
             await refreshAccessToken();
             await uploadFile(req, res, file, filename);
@@ -125,6 +126,7 @@ app.post('/upload-file', upload.single('file'), async (req, res) => {
 // Endpoint to upload text to Dropbox
 app.post('/upload-text', async (req, res) => {
     try {
+         console.log('Request body:', req.body);
         if (!req.body || !req.body.text || !req.body.filename) {
             res.status(400).send('Text and filename are required');
             return;
