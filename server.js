@@ -69,6 +69,9 @@ app.use(cors({
 
 const uploadFile = async (req, res, file, filename) => {
     try {
+        if (typeof file === 'string') {
+            file = Buffer.from(file);
+        }
         const path = `${DROPBOX_FOLDER}/${filename}`;
 
         const headers = {
@@ -115,13 +118,13 @@ app.post('/upload-file', upload.single('file'), async (req, res) => {
 // Endpoint to upload text to Dropbox
 app.post('/upload-text', async (req, res) => {
     try {
-        await uploadFile(req, res, Buffer.from(req.body.text), req.body.filename + '.txt');
+        if (!req.body.text || !req.body.filename) {
+            res.status(400).send('Text and filename are required');
+            return;
+        }
+        await uploadFile(req, res, Buffer.from(req.body.text), req.body.filename);
     } catch (error) {
         console.error('Error in /upload-text endpoint:', error);
         res.status(500).send('Internal Server Error');
     }
-});
-
-app.listen(port, () => {
-    console.log(`Server listening on port ${port}`);
 });
