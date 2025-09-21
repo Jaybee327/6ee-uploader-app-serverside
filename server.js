@@ -20,21 +20,22 @@ const port = 3000;
 
 
 // 1. For App Key -------------------------
-const APP_KEY = 'lzcdiqg8kbuq35u'; // create a new app key: Go to the Dropbox Developer Dashboard (https://www.dropbox.com/developers) and create a new app (call it whatever). This will give you access to the Dropbox API,
+const APP_KEY = '0rcnttyg74wgahw'; // create a new app key: Go to the Dropbox Developer Dashboard (https://www.dropbox.com/developers) and create a new app (call it whatever). This will give you access to the Dropbox API,
 // find and click Generate an access token for your app. This token will allow your app to access your Dropbox account via this app.
 
 // 2. For App Secret -------------------------
-const APP_SECRET = '5s1v2waqaszia1v'; // you'll also find app secret code in the dash board...
+const APP_SECRET = 'kzwco8jrs1mn1l9'; // you'll also find app secret code in the dash board...
 
 // 3. For Access Token and refresh token (do this step fast) -------------------------
 // obtain authorise code first by pasting the link below on your browser...
 // https://www.dropbox.com/oauth2/authorize?client_id=YourAppKeyHere&token_access_type=offline&response_type=code ---- this link gives u auth code
 // then paste auth code in between the follwing link below and paste in CMD to get access and refresh token
 // curl --location --request POST "https://api.dropboxapi.com/oauth2/token" --user "Your-APP_KEY:Your-APP_SECRET" --header "Content-type: application/x-www-form-urlencoded" --data-urlencode "code=PasteAuthCodeHere" --data-urlencode "grant_type=authorization_code"
+// curl --location --request POST "https://api.dropboxapi.com/oauth2/token" --user "0rcnttyg74wgahw:kzwco8jrs1mn1l9" --header "Content-type: application/x-www-form-urlencoded" --data-urlencode "code=yZj9NDtoeToAAAAAAAAAKC1O7XWDqSwf0tMHXobi3c0" --data-urlencode "grant_type=authorization_code"
 // 
 
-let ACCESS_TOKEN = 'sl.u.AF8-JHXzDJEwGigCjgYKpJZVTBQBAXN-ia-wuALnUoz0uHJzRNf0sX8klJTIfQmKOFKgCW2XEKEWBI-irBjUgrsPfrud8xV2dH1vWkhVkWsay9GgaxLqYIwMXG3mGqESYbQ-COWo02wc-PEEoV7k7Gvplw48gVnmexaobyq4hMIr9cHmKqqDqL7ThH8sQZD6V_tHFatXD4k9jtVAV__fTcevpzYVx4U0Xm0LkFApqrGfLVymHgALRvDnaU-iEkl5sRTUywsOLxBF4v-oqUxOC8uH3EtJbUNbj51MlSFAokHZj8AFc2dtCQ_A2BWdABecxBtLVJOUhWsWlRycESFSrUVVygkB7pMXZM_QNbLlNNHE8ZEYJVzs5ILSBR_-4ubSbEC-8km8EYyUSPNBrzglhzsv1cj6QdepcTdhGJlM-UtvaROghpmewEjOLOY1XqKgRBJ4xqD5sEDn019ro6deu5odeJ1G1VKvLxmB5kULGMYxF382XC2KdgsvlJyVZkK0uuw4bu5_lo5vMvv9_TTQ7tGgW1fG0daYcG3Nm3EG78-1D6RxKtMiAYubjOEM_A3SsQYB9Vw800vsdY0k8vNiaWF3AMuKVTqVi0BBgAKu3_55HQ9g6GKaAIJIXRM944yCzyIth-GXSWyAQB6kba6E6hb4xUsJOM8IwU08P8rcK3Ax1Vf4s_ipTxdA7nYwifv_CyRFs_n-o7QWlr0a0aTFtRaDdxlC15JOLUNkN-VZ82m8r2ej3R4k9afdM8cZYP4jjFEq7C1NNksvEkgwvuwfhEGJUb5dWlK-Zrf6_vDKsReXqvwzPuRvsgWrxpw1749Dw78WcKHvrHUpgDg465q4kHEEz84NdT6WjPFLLv6Oh_FSG0OEuo8rLW5iA2i2EWkg4CTSt4B-Gz6XFc1DGjD901pGfHms5aGOtOSxzlOdjy8Vi3zWgnWDosh2wevvNW9mtdODJUaYEtjzj6jwmNWQMitR5BcP4nZXGby-DNKIBLRMNHjUPDxq1TDrv78ygTFwquDVja70TZmvLKWOQ_Cl3IGKv9fOYTHOxVCK_5VpI8x5lvH7qrk5q_Lw117AK9V_YKKOYlWMebUcQjkzDcKOjS8bul9RMrl6O0S3bLZzADio4LDU7AHc5CieF8W49jnru1gMdkBjZaXzh4bE6qBOK-Yt8kws6X9k_MIfvI3DaW2n2SWXIGi0zP9HNsKjvM9zK-k0Na6o_jqATLiyxD_YpVRth9kHcwJXsetYPtE5Sqf86hD5IutPE4AVr3PWR71PYhdgvr_5YKeqCIoeMeukyzJiXmhvgjWxCracgy4_r5su8WEYYvgj0di9t3hG_c1F9xf6hBahOTMPAezBOF7sRuGDy44aJ2U5vvyNj27Er01zgrXUTbSdIQquDtOsLj_nyWN95vqw4tSm9dwEcsQfacAW';
-const REFRESH_TOKEN = 'IFoV8x4Nvn8AAAAAAAAAAYYepmpjdAWxlJw9nKR_bBVFDG7Q4glRRPVXOmV';
+let ACCESS_TOKEN = 'sl.u.AF9puILdP42cXxJmu4PLTcM0gftui21YV8aMC3HksGwVzKVguF8fm6CumBdZ2N697KzhzkMTQF6AUW979Pq7yAgLU3rb9kauxKi5-p6TUNMMZTi5Ml8seg2B6pZjmuMYOcfxIXwfxB956x0yP3GiyICYZhWBjVH1BHQhJ6M77mdK2SloJA2gkPjuA2JCuC_-VILRsJa3CHL_3rDuJcTrmNUpH4oGdQ26fcqyIkWSncbGKmNk8FluJxfyidGs_7chdzJYEYSYjPXgAizpHkcZUXn8Vvuwbgw3FqtRCOYRR4T2Imt1wyek6LW09VfYgzD1UVCKy7kfgxCo4_DIx579ENLCWiqBQBbrT45PLilGPn7k5BkOgSZM73nthNSUjATOYXEqsaem8JlDedPwYqD7BSLroctczZe4i2Lr3Wjhd4fL4dSIHfD53--YCaiwngYaaGgrso5G68asEQ2AVgl4q74oa0jZBb0DXzsQ573gmIqQu3dnHtgM3AQsNdLAn70muVM2Hj_8NmHfyBYjYVKc6Vs2MlhH_hAb6vgJckuQu9PowV-qtxBUHfF621KWZk10gW1Jzp5cgS3OVgzc-HHFRZAkOGP3_MaUjCqiIwhO-WzjrilyNGbBf8ls_InDVl51MDnOOvTHcRjxbS2oCpZSQNtNNm_hFZ5tWQuJ_BbMKm49VzGbpIhahBJd1AyUy0H-oiDsMhO1wbubrwTqlREtl2b9MbwNIuVPwtem5f2pAypsFuPKuS10Ki9i8ihvAkUJhKaQrzUJxRuXqLwA4FnC2zG-hlrIzrWHa8i7uGwT0mKb_khuOSvhDKzHRmMkCMCaE1yvQteG0uu203kykE26jR2hQ0hX5udMnx9UjlxfymJTBeWzO554L1veqfwL48tYnqd0y-flYeQ82H-QTa5FdjGQRneXW4cJTwpy1ZFviN3-c4uLQGwlJrNiMZ48lEZeFusQDcYlWuqAMoDv-LwXsZdo4QIfa6xE71B7bHUn0GiqfUlzeS6A6tzJK6tn-ZDSuT4xN5mco606goVz8UpsTvOr51Wfy7BJzY-ESz4Qk0EJwlWLzdYmnn1x90w37m-xF2-bYM8fCjQpxAITexWPGcj39-A2e6iycSsbp2ym57RHLt_UKISngp162NVofrqPHbAvciawGmXS-tCt7STQYLv0dCHcDao97rUD1QE379e1Xthl_rbTjeZl3j7q9g0jhiOR_b1beKAQMA0RvHJbsXe4XQT-y6FkVyPu1mDbzptebrPBLPx8mR5Y9zkHpDveeySZ1qmujMS6ibXCnIq6t8OCYJ-RrZXFBsX6woMQ1nSkKNsYUqm2VjCsdQSmH2aARXHvBcocJAa80Xm_I6rAZNsL2Lv_9hOh1i84g3akEZeRg-WQyulnIpEAGyic-xu_UjPmFXoaiq60lOQg9eGjV79YZjdVc8fbH3ZTS1iLVJ10iQ';
+const REFRESH_TOKEN = 'd7NBMbQgCjEAAAAAAAAAAZda7WdQBi7zWcnBjICDpIpZ';
 
 
 
@@ -67,8 +68,9 @@ app.use(express.json());
 // paste your frontend static client side web url here witout the last foward slash '/' as shown below
 const cors = require('cors');
 // app.use(cors({
+// //   origin: '*' // global
 // //   origin: 'https://sixeeinc-fileuploader-app.onrender.com'
-//   origin: '*' // global
+// //   origin: 'https://username.github.io'
 // }));
 app.use(cors({
   origin: 'https://sixeeinc-fileuploader-app.onrender.com',
