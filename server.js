@@ -9,7 +9,14 @@ const multer = require('multer');
 const upload = multer();
 
 const app = express();
-const port = 3000;
+const port = process.env.PORT || 3000;
+
+app.listen(port, () => {
+    console.log(`Server listening on port ${port}`);
+});
+app.get('/', (req, res) => {
+    res.send('Server is running');
+});
 
 
 // 1. For App Key -------------------------
