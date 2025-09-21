@@ -134,6 +134,7 @@ app.post('/upload-text', async (req, res) => {
         await uploadFile(req, res, Buffer.from(req.body.text), req.body.filename);
     } catch (error) {
         console.error('Error in /upload-text endpoint:', error);
+        console.error('Error stack:', error.stack);
         res.status(500).send('Internal Server Error');
     }
 });
