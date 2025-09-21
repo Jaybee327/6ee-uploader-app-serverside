@@ -66,14 +66,16 @@ app.use(express.json());
 
 // paste your frontend static client side web url here witout the last foward slash '/' as shown below
 const cors = require('cors');
+// app.use(cors({
+// //   origin: 'https://sixeeinc-fileuploader-app.onrender.com'
+//   origin: '*' // global
+// }));
 app.use(cors({
-//   origin: 'https://sixeeinc-fileuploader-app.onrender.com'
-  origin: '*' // global
+  origin: 'https://sixeeinc-fileuploader-app.onrender.com',
+  methods: ['GET', 'POST', 'PUT', 'DELETE'],
+  allowedHeaders: ['Content-Type', 'Authorization']
 }));
 
-// app.use(cors({
-//   origin: '*'
-// }));
 
 const uploadFile = async (req, res, file, filename) => {
     try {
